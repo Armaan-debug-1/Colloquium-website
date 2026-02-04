@@ -1,43 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTE Thapar | Student Chapter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">ISTE THAPAR</div>
+        <div class="logo">
+            <span class="logo-icon">⚡</span>
+            ISTE THAPAR
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <LI><a href="#events">Events</a></LI> 
-            <li><a href>Contact</a></li> 
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#team">Team</a></li>
         </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
-    <header id="hero-section">
-        <h1>Empowering Engineers</h1>
-        <p>Shaping the Technological Future Together.</p>
-        
-        <img src="image1.png" alt="Students working" class="hero-img">
-        
-        <br><br> <button class="cta-button">Join Now</button>
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Empowering Engineers</h1>
+            <p class="hero-subtitle">Shaping the Technological Future Together</p>
+            
+            <!-- REAL BUG 1: Inline style with invalid display value - "display: flex-inline" doesn't exist, should be "inline-flex" -->
+            <div class="hero-stats" style="display: flex-inline; gap: 2rem;">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Active Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Events Hosted</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Legacy</span>
+                </div>
+            </div>
+            
+            <button class="cta-button primary">Join Our Community</button>
+            <button class="cta-button secondary">Explore Events</button>
+        </div>
+        <div class="hero-image">
+            <img src="image1.png" alt="Students collaborating on engineering projects" class="hero-img">
+        </div>
     </header>
 
-    <section class="events-container">
-        <h2>Upcoming Events</h2>
-        <div class="event-card">
-            <h3>Colloquium</h3>
-            <p>Showcase your coding skills.</p>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About ISTE Thapar</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Our Mission</h3>
+                    <p>To foster technical excellence and innovation among students through hands-on learning and collaborative projects.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Our Vision</h3>
+                    <p>To be the leading student technical community that bridges academia and industry.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Our Values</h3>
+                    <p>Innovation, collaboration, integrity, and continuous learning drive everything we do.</p>
+                </div>
+            </div>
         </div>
-        <div class="event-card">
-            <h3>Tech Talks</h3>
-            <p>Learn from industry experts.</p>
-        </section>
-        </body>
-    <footer>
-        <p>&copy; 2026 ISTE Thapar. All Rights Reserved.</p>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="section-subtitle">Join us for exciting technical events and workshops</p>
+            
+            <div class="events-grid">
+                <div class="event-card featured">
+                    <div class="event-badge">Featured</div>
+                    <div class="event-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">MAR</span>
+                    </div>
+                    <h3>Colloquium 2026</h3>
+                    <p>Showcase your coding skills in our annual programming competition with exciting prizes.</p>
+                    <div class="event-meta">
+                        <span class="event-location">📍 Academic Block</span>
+                        <span class="event-time">⏰ 10:00 AM</span>
+                    </div>
+                    <button class="event-button">Register Now</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">22</span>
+                        <span class="date-month">MAR</span>
+                    </div>
+                    <h3>Tech Talks Series</h3>
+                    <p>Learn from industry experts about cutting-edge technologies and career insights.</p>
+                    <div class="event-meta">
+                        <span class="event-location">📍 Seminar Hall</span>
+                        <span class="event-time">⏰ 4:00 PM</span>
+                    </div>
+                    <button class="event-button">Register Now</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">05</span>
+                        <span class="date-month">APR</span>
+                    </div>
+                    <h3>Hackathon 2026</h3>
+                    <p>24-hour coding marathon to solve real-world problems. Build, innovate, and win!</p>
+                    <div class="event-meta">
+                        <span class="event-location">📍 Innovation Lab</span>
+                        <span class="event-time">⏰  9:00 AM</span>
+                    </div>
+                    <button class="event-button">Register Now</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">12</span>
+                        <span class="date-month">APR</span>
+                    </div>
+                    <h3>Web Development Workshop</h3>
+                    <p>Master modern web technologies with hands-on projects and expert mentorship.</p>
+                    <div class="event-meta">
+                        <span class="event-location">📍 Computer Lab</span>
+                        <span class="event-time">⏰ 2:00 PM</span>
+                    </div>
+                    <button class="event-button">Register Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <!-- REAL BUG 2: Duplicate ID attribute - has both id="team" and id="team-section", CSS targets class="team-section" -->
+    <section id="team" id="team-section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Meet the people behind ISTE Thapar</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="placeholder-img">JD</div>
+                    </div>
+                    <h3>John Doe</h3>
+                    <p class="team-role">President</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="#" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="placeholder-img">JS</div>
+                    </div>
+                    <h3>Jane Smith</h3>
+                    <p class="team-role">Vice President</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="#" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="placeholder-img">AK</div>
+                    </div>
+                    <h3>Alex Kumar</h3>
+                    <p class="team-role">Technical Head</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="#" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="placeholder-img">SP</div>
+                    </div>
+                    <h3>Sara Patel</h3>
+                    <p class="team-role">Events Coordinator</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="#" aria-label="Email">@</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest events and updates</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ISTE Thapar</h3>
+                    <p>Indian Society for Technical Education, Thapar Institute of Engineering & Technology</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#team">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: iste@thapar.edu</li>
+                        <li>Phone: +91 123 456 7890</li>
+                        <li>Campus: Patiala, Punjab</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Twitter">t</a>
+                        <a href="#" aria-label="Instagram">i</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ISTE Thapar. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
 </body>

@@ -1,74 +1,734 @@
-/* General Resets */
-body {
+/* 
+    CSS
+*/
+
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    /* DECOY BUG 3: Using 'background' shorthand instead of 'background-color' (It works!) */
-    background: #f4f4f4; 
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Navigation Styles */
+:root {
+    --iste-red: #850E35;
+    --iste-dark-red: #6A0B2A;
+    --iste-light-red: #A01141;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f8f9fa;
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-700: #495057;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===========================
+   Navigation Bar
+   =========================== */
+
+/* REAL BUG 3: Wrong flexbox syntax - "display: flexbox" should be "display: flex" */
 .navbar {
-    display: flex;
+    display: flexbox;
     justify-content: space-between;
-    background-color: #850E35; /* ISTE Red */
-    padding: 15px;
-    color: white;
+    align-items: center;
+    background: linear-gradient(135deg, var(--iste-red) 0%, var(--iste-dark-red) 100%);
+    padding: 1rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
-/* Hero Section Styles */
-#hero-section {
-    text-align: center;
-    padding: 50px 20px;
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    gap: 3rem;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--iste-red);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--gray-700);
+    margin-bottom: 2rem;
+}
+
+/* Hero stats styling - works with correct display property */
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--iste-red);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.cta-button.primary {
+    background-color: var(--iste-red);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button.primary:hover {
+    background-color: var(--iste-dark-red);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--iste-red);
+    border: 2px solid var(--iste-red);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--iste-red);
+    color: white;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-img {
     width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-    border-radius: 10px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-speed);
 }
 
-/* REAL BUG 4: Typo in selector. In HTML it is class="cta-button", here it is ID */
-#cta-button { 
-    background-color: #850E35;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+.hero-img:hover {
+    transform: scale(1.05);
 }
 
-/* Event Section Styles */
-.events-container {
-    padding: 40px;
+/* ===========================
+   About Section
+   =========================== */
+
+.about-section {
+    padding: 5rem 2rem;
+    background-color: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
     text-align: center;
+    color: var(--iste-red);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--iste-red);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* REAL BUG 4: Wrong grid syntax - "grid-template-column" should be "grid-template-columns" (missing 's') */
+.about-grid {
+    display: grid;
+    grid-template-column: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all var(--transition-speed);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--iste-red);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    color: var(--iste-red);
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    color: var(--gray-700);
+    line-height: 1.8;
+}
+
+/* ===========================
+   Events Section
+   =========================== */
+
+.events-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray-700);
+    font-size: 1.1rem;
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .event-card {
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    display: inline-block;
-    width: 30%;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
 }
 
-footer {
-    background-color: #333;
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--iste-red), var(--iste-light-red));
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.event-card.featured {
+    border: 2px solid var(--iste-red);
+}
+
+/* REAL BUG 5: z-index conflict - badge has lower z-index than card's ::before pseudo-element */
+.event-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--iste-red);
     color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 0;  /* Should be higher than ::before which defaults to z-index: auto */
+}
+
+/* DECOY BUG 1: Using inline-flex is perfectly valid */
+.event-date {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--iste-red);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    min-width: 60px;
+}
+
+.date-day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.event-card h3 {
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.event-card p {
+    color: var(--gray-700);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+
+.event-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--iste-red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.event-button:hover {
+    background-color: var(--iste-dark-red);
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Team Section
+   =========================== */
+
+/* REAL BUG 6: Wrong selector - targets class but HTML has id attributes */
+.team-section {
+    padding: 5rem 2rem;
+    background-color: white;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    padding: 2rem;
     text-align: center;
-    padding: 10px;
-    margin-top: 50px;
+    transition: all var(--transition-speed);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--iste-red);
+}
+
+.team-image {
+    margin-bottom: 1.5rem;
+}
+
+.placeholder-img {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--iste-red), var(--iste-light-red));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.team-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    color: var(--iste-red);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    background-color: var(--gray-200);
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all var(--transition-speed);
+}
+
+.social-links a:hover {
+    background-color: var(--iste-red);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* ===========================
+   Newsletter Section
+   =========================== */
+
+.newsletter-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--iste-red), var(--iste-dark-red));
+    color: white;
+}
+
+.newsletter-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* REAL BUG 7: Wrong flex property - "flex-grow" instead of just setting flex: 1 or proper flex values */
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 2;  /* Should be "flex: 1" for proper flexible sizing */
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 0;  /* Without this, flex items don't shrink properly */
+}
+
+.newsletter-form button {
+    padding: 1rem 2rem;
+    background-color: white;
+    color: var(--iste-red);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    flex-shrink: 0;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--gray-100);
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Footer
+   =========================== */
+
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 3rem 2rem 1rem;
+}
+
+/* DECOY BUG 2: repeat(auto-fit, ...) is correct and commonly used */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--iste-red);
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.footer-col p {
+    color: var(--gray-300);
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+    color: var(--gray-300);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-col ul li a:hover {
+    color: var(--iste-red);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: var(--gray-700);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all var(--transition-speed);
+}
+
+.social-icons a:hover {
+    background-color: var(--iste-red);
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-700);
+    color: var(--gray-300);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    /* REAL BUG 8: Wrong property name - "display: hidden" should be "display: none" */
+    .nav-links {
+        display: hidden;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* DECOY BUG 3: Multiple media queries are fine and commonly used */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* REAL BUG 9: Typo in transform property - "transorm" instead of "transform" */
+@media (hover: hover) {
+    .event-card:hover .event-badge {
+        transorm: rotate(5deg);
+    }
 }
