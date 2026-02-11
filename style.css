@@ -1,6 +1,20 @@
-/* 
-    CSS
-*/
+:root {
+    --primary-dark: #0f172a;
+    --primary-blue: #3b82f6;
+    --primary-purple: #8b5cf6;
+    --accent-cyan: #06b6d4;
+    --bg-light: #f8fafc;
+    --bg-card: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
 * {
     margin: 0;
@@ -8,727 +22,532 @@
     box-sizing: border-box;
 }
 
-:root {
-    --iste-red: #850E35;
-    --iste-dark-red: #6A0B2A;
-    --iste-light-red: #A01141;
-    --dark-bg: #1a1a1a;
-    --light-bg: #f8f9fa;
-    --text-dark: #2c3e50;
-    --text-light: #ffffff;
-    --gray-100: #f8f9fa;
-    --gray-200: #e9ecef;
-    --gray-300: #dee2e6;
-    --gray-700: #495057;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
-    --transition-speed: 0.3s;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--light-bg);
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ===========================
-   Navigation Bar
-   =========================== */
-
-/* REAL BUG 3: Wrong flexbox syntax - "display: flexbox" should be "display: flex" */
-.navbar {
-    display: flexbox;
-    justify-content: space-between;
+.main-header {
+    background: var(--primary-dark);
+    color: white;
+    padding: 0 2.5rem;
+    height: 70px;
+    display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--iste-red) 0%, var(--iste-dark-red) 100%);
-    padding: 1rem 3rem;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
+    z-index: 100;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-light);
     display: flex;
     align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text-container {
+    display: flex;
+    align-items: baseline;
     gap: 0.5rem;
 }
 
-.logo-icon {
-    font-size: 1.8rem;
-    animation: pulse 2s infinite;
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.logo-year {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    font-weight: 600;
 }
 
-.nav-links {
-    list-style: none;
+.header-nav {
     display: flex;
     gap: 2rem;
-    align-items: center;
 }
 
-.nav-links a {
-    color: var(--text-light);
+.nav-item {
+    color: #94a3b8;
     text-decoration: none;
     font-weight: 500;
-    transition: all var(--transition-speed);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-
-.nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.nav-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    transition: 0.3s;
-}
-
-/* ===========================
-   Hero Section
-   =========================== */
-
-.hero-section {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4rem 3rem;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    gap: 3rem;
-}
-
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--iste-red);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    color: var(--gray-700);
-    margin-bottom: 2rem;
-}
-
-/* Hero stats styling - works with correct display property */
-.hero-stats {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--iste-red);
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--gray-700);
-}
-
-.cta-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all var(--transition-speed);
-    margin-right: 1rem;
-    margin-top: 1rem;
-}
-
-.cta-button.primary {
-    background-color: var(--iste-red);
-    color: white;
-    box-shadow: var(--shadow-md);
-}
-
-.cta-button.primary:hover {
-    background-color: var(--iste-dark-red);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-}
-
-.cta-button.secondary {
-    background-color: transparent;
-    color: var(--iste-red);
-    border: 2px solid var(--iste-red);
-}
-
-.cta-button.secondary:hover {
-    background-color: var(--iste-red);
-    color: white;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    transition: transform var(--transition-speed);
-}
-
-.hero-img:hover {
-    transform: scale(1.05);
-}
-
-/* ===========================
-   About Section
-   =========================== */
-
-.about-section {
-    padding: 5rem 2rem;
-    background-color: white;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--iste-red);
-    margin-bottom: 3rem;
+    transition: color 0.3s ease;
     position: relative;
 }
 
-.section-title::after {
+.nav-item:hover {
+    color: white;
+}
+
+.nav-item.active {
+    color: white;
+}
+
+.nav-item.active::after {
     content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--iste-red);
-    margin: 1rem auto;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-blue);
     border-radius: 2px;
 }
 
-/* REAL BUG 4: Wrong grid syntax - "grid-template-column" should be "grid-template-columns" (missing 's') */
-.about-grid {
-    display: grid;
-    grid-template-column: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.about-card {
-    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: all var(--transition-speed);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--gray-200);
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--iste-red);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.about-card h3 {
-    font-size: 1.5rem;
-    color: var(--iste-red);
-    margin-bottom: 1rem;
-}
-
-.about-card p {
-    color: var(--gray-700);
-    line-height: 1.8;
-}
-
-/* ===========================
-   Events Section
-   =========================== */
-
-.events-section {
-    padding: 5rem 2rem;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--gray-700);
-    font-size: 1.1rem;
-    margin-top: -2rem;
-    margin-bottom: 3rem;
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.event-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-speed);
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     position: relative;
+}
+
+.notification-badge {
+    background: var(--error);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-cyan));
+    cursor: pointer;
+}
+
+.app-container {
+    display: flex;
+    flex: 1;
     overflow: hidden;
 }
-
-.event-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--iste-red), var(--iste-light-red));
-}
-
-.event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-}
-
-.event-card.featured {
-    border: 2px solid var(--iste-red);
-}
-
-/* REAL BUG 5: z-index conflict - badge has lower z-index than card's ::before pseudo-element */
-.event-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: var(--iste-red);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    z-index: 0;  /* Should be higher than ::before which defaults to z-index: auto */
-}
-
-/* DECOY BUG 1: Using inline-flex is perfectly valid */
-.event-date {
-    display: inline-flex;
+.sidebar {
+    width: 280px;
+    background: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    display: flex;
     flex-direction: column;
+    padding: 2rem 0;
+    overflow-y: auto;
+}
+
+.sidebar-section {
+    margin-bottom: 2.5rem;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.sidebar-link {
+    display: flex;
     align-items: center;
-    background-color: var(--iste-red);
-    color: white;
-    padding: 0.8rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    min-width: 60px;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
-.date-day {
-    font-size: 1.8rem;
-    font-weight: bold;
-    line-height: 1;
+.sidebar-link:hover {
+    background: var(--bg-light);
+    transform: translateX(4px);
 }
 
-.date-month {
-    font-size: 0.9rem;
+.sidebar-link.active {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    color: var(--primary-blue);
+}
+
+.link-icon {
+    font-size: 1.2rem;
+}
+
+.event-countdown {
+    margin-top: auto;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+    border-top: 1px solid var(--border-color);
+}
+
+.countdown-circle {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+}
+
+.countdown-svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.countdown-bg {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 8;
+}
+
+.countdown-progress {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.timer-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.countdown-label {
+    margin-top: 1rem;
+    font-size: 0.75rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
 }
 
-.event-card h3 {
-    font-size: 1.4rem;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
+
+.main-content {
+    flex: 1;
+    padding: 3rem;
+    overflow-y: auto;
 }
 
-.event-card p {
-    color: var(--gray-700);
+.content-header {
+    margin-bottom: 2.5rem;
+}
+
+.content-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-card,
+.registration-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1.5rem;
-    line-height: 1.6;
 }
 
-.event-meta {
+.card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--warning);
+    color: white;
+}
+
+/* BUG #2 (CSS): .success class uses display:none which hides the badge when it should show green */
+.status-badge.success {
+    background: var(--success);
+    display: none;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-item {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background: var(--bg-light);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+    width: 0%;
+    transition: width 0.6s ease;
+    border-radius: 6px;
+}
+
+.score-text {
+    font-weight: 700;
+    color: var(--primary-blue);
+    min-width: 45px;
+}
+
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-primary);
     font-size: 0.9rem;
-    color: var(--gray-700);
 }
 
-.event-button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--iste-red);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all var(--transition-speed);
-}
-
-.event-button:hover {
-    background-color: var(--iste-dark-red);
-    transform: scale(1.05);
-}
-
-/* ===========================
-   Team Section
-   =========================== */
-
-/* REAL BUG 6: Wrong selector - targets class but HTML has id attributes */
-.team-section {
-    padding: 5rem 2rem;
-    background-color: white;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.team-card {
-    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-    transition: all var(--transition-speed);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--gray-200);
-}
-
-.team-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--iste-red);
-}
-
-.team-image {
-    margin-bottom: 1.5rem;
-}
-
-.placeholder-img {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, var(--iste-red), var(--iste-light-red));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.team-card h3 {
-    font-size: 1.3rem;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-}
-
-.team-role {
-    color: var(--iste-red);
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 35px;
-    height: 35px;
-    background-color: var(--gray-200);
-    color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all var(--transition-speed);
-}
-
-.social-links a:hover {
-    background-color: var(--iste-red);
-    color: white;
-    transform: scale(1.1);
-}
-
-/* ===========================
-   Newsletter Section
-   =========================== */
-
-.newsletter-section {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--iste-red), var(--iste-dark-red));
-    color: white;
-}
-
-.newsletter-content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.newsletter-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.newsletter-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-/* REAL BUG 7: Wrong flex property - "flex-grow" instead of just setting flex: 1 or proper flex values */
-.newsletter-form {
-    display: flex;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.newsletter-form input[type="email"] {
-    flex-grow: 2;  /* Should be "flex: 1" for proper flexible sizing */
-    padding: 1rem;
-    border: none;
+.form-group input {
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
     font-size: 1rem;
-    min-width: 0;  /* Without this, flex items don't shrink properly */
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: var(--bg-light);
 }
 
-.newsletter-form button {
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* BUG #3 (CSS): Submit button has pointer-events: none which prevents clicking */
+.submit-button {
     padding: 1rem 2rem;
-    background-color: white;
-    color: var(--iste-red);
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all var(--transition-speed);
-    flex-shrink: 0;
-}
-
-.newsletter-form button:hover {
-    background-color: var(--gray-100);
-    transform: scale(1.05);
-}
-
-/* ===========================
-   Footer
-   =========================== */
-
-.footer {
-    background-color: var(--dark-bg);
-    color: var(--text-light);
-    padding: 3rem 2rem 1rem;
-}
-
-/* DECOY BUG 2: repeat(auto-fit, ...) is correct and commonly used */
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-col h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--iste-red);
-}
-
-.footer-col h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--text-light);
-}
-
-.footer-col p {
-    color: var(--gray-300);
-    line-height: 1.8;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-col ul li a {
-    color: var(--gray-300);
-    text-decoration: none;
-    transition: color var(--transition-speed);
-}
-
-.footer-col ul li a:hover {
-    color: var(--iste-red);
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-icons a {
-    width: 40px;
-    height: 40px;
-    background-color: var(--gray-700);
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
     color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    pointer-events: none;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+
+.console-panel {
+    background: var(--primary-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.console-header {
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.console-title {
+    color: var(--accent-cyan);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.console-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* BUG #4 (CSS): The dots have width and height swapped (width: 8px, height: 16px) making them ovals */
+.dot {
+    width: 8px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: var(--error);
+}
+
+.dot.yellow {
+    background: var(--warning);
+}
+
+.dot.green {
+    background: var(--success);
+}
+
+.console-body {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #94a3b8;
+    min-height: 180px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.console-line {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.console-line.error {
+    color: var(--error);
+}
+
+.console-line.success {
+    color: var(--success);
+}
+
+.console-line.warning {
+    color: var(--warning);
+}
+
+/* Footer */
+.main-footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all var(--transition-speed);
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
 }
 
-.social-icons a:hover {
-    background-color: var(--iste-red);
-    transform: scale(1.1);
+.footer-brand {
+    font-weight: 700;
+    color: white;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--gray-700);
-    color: var(--gray-300);
+.footer-separator {
+    color: var(--text-secondary);
 }
 
-/* ===========================
-   Responsive Design
-   =========================== */
-
-@media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    /* REAL BUG 8: Wrong property name - "display: hidden" should be "display: none" */
-    .nav-links {
-        display: hidden;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1rem;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-stats {
-        justify-content: center;
-    }
-
-    .events-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+.footer-right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
 }
 
-/* DECOY BUG 3: Multiple media queries are fine and commonly used */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .about-grid,
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cta-button {
-        width: 100%;
-        margin-right: 0;
-    }
-}
-
-/* REAL BUG 9: Typo in transform property - "transorm" instead of "transform" */
-@media (hover: hover) {
-    .event-card:hover .event-badge {
-        transorm: rotate(5deg);
-    }
+.error-indicator {
+    color: var(--warning);
+    font-weight: 600;
 }

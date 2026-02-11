@@ -3,269 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISTE Thapar | Student Chapter</title>
+    <title>COLLOQUIUM 2026 | Registration</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <header class="main-header">
         <div class="logo">
-            <span class="logo-icon">⚡</span>
-            ISTE THAPAR
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#team">Team</a></li>
-        </ul>
-        <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home" class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Empowering Engineers</h1>
-            <p class="hero-subtitle">Shaping the Technological Future Together</p>
-            
-            <!-- REAL BUG 1: Inline style with invalid display value - "display: flex-inline" doesn't exist, should be "inline-flex" -->
-            <div class="hero-stats" style="display: flex-inline; gap: 2rem;">
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Active Members</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Events Hosted</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Years Legacy</span>
-                </div>
+            <img src="logo.png" alt="ISTE Logo" class="logo-image">
+            <div class="logo-text-container">
+                <span class="logo-text">COLLOQUIUM</span>
+                <span class="logo-year">2026</span>
             </div>
-            
-            <button class="cta-button primary">Join Our Community</button>
-            <button class="cta-button secondary">Explore Events</button>
         </div>
-        <div class="hero-image">
-            <img src="image1.png" alt="Students collaborating on engineering projects" class="hero-img">
+        <nav class="header-nav">
+            <a href="#events" class="nav-item">Events</a>
+            <a href="#schedule" class="nav-item">Schedule</a>
+            <a href="#register" class="nav-item active">Register</a>
+        </nav>
+        <div class="profile-section">
+            <div class="notification-badge">3</div>
+            <div class="avatar"></div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">About ISTE Thapar</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-icon">🎓</div>
-                    <h3>Our Mission</h3>
-                    <p>To foster technical excellence and innovation among students through hands-on learning and collaborative projects.</p>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="section-title">Event Categories</div>
+                <a href="#" class="sidebar-link active">
+                    <span class="link-icon">🎯</span>
+                    <span>Technical Events</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="link-icon">💡</span>
+                    <span>Workshops</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="link-icon">🏆</span>
+                    <span>Competitions</span>
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="section-title">Resources</div>
+                <a href="#" class="sidebar-link">
+                    <span class="link-icon">📚</span>
+                    <span>Guidelines</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="link-icon">👥</span>
+                    <span>Team Info</span>
+                </a>
+            </div>
+
+            <div class="event-countdown">
+                <div class="countdown-circle">
+                    <svg class="countdown-svg" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="countdown-bg" cx="60" cy="60" r="54"></circle>
+                        <circle class="countdown-progress" cx="60" cy="60" r="54" id="countdown-ring"></circle>
+                    </svg>
+                    <div id="timer-display" class="timer-display">40:00</div>
                 </div>
-                <div class="about-card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Our Vision</h3>
-                    <p>To be the leading student technical community that bridges academia and industry.</p>
+                <div class="countdown-label">Challenge Timer</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Registration Portal</h1>
+                <p class="subtitle">Complete the form below to register for COLLOQUIUM 2026</p>
+            </div>
+
+            <div class="cards-container">
+                <div class="info-card">
+                    <div class="card-header">
+                        <h3>Event Information</h3>
+                        <span class="status-badge" id="event-status">Pending</span>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Total Participants</div>
+                            <div class="info-value" id="participant-count">0</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Registration Status</div>
+                            <div class="info-value" id="reg-status">Awaiting Input</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Validation Score</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div id="validation-progress" class="progress-fill"></div>
+                                </div>
+                                <span id="score-text" class="score-text">0%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-card">
-                    <div class="card-icon">🤝</div>
-                    <h3>Our Values</h3>
-                    <p>Innovation, collaboration, integrity, and continuous learning drive everything we do.</p>
+
+                <div class="registration-card">
+                    <div class="card-header">
+                        <h3>Registration Form</h3>
+                    </div>
+                    <!-- BUG #1 (HTML): maxlength is 8 but required format "ISTE-2026" is 9 characters -->
+                    <form id="registration-form" class="reg-form">
+                        <div class="form-group">
+                            <label for="team-name">Team Name</label>
+                            <input type="text" id="team-name" placeholder="Enter your team name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-size">Team Size</label>
+                            <input type="number" id="team-size" min="1" max="4" placeholder="1-4 members" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-code">Event Access Code</label>
+                            <input type="text" id="event-code" placeholder="XXXX-XXXX" maxlength="8" required>
+                            <small class="hint">Format: ISTE-2026</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Contact Email</label>
+                            <input type="email" id="email" placeholder="team@example.com" required>
+                        </div>
+                        <button type="submit" id="submit-btn" class="submit-button">
+                            Complete Registration
+                        </button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Events Section -->
-    <section id="events" class="events-section">
-        <div class="container">
-            <h2 class="section-title">Upcoming Events</h2>
-            <p class="section-subtitle">Join us for exciting technical events and workshops</p>
-            
-            <div class="events-grid">
-                <div class="event-card featured">
-                    <div class="event-badge">Featured</div>
-                    <div class="event-date">
-                        <span class="date-day">15</span>
-                        <span class="date-month">MAR</span>
+            <div class="console-panel">
+                <div class="console-header">
+                    <span class="console-title">System Console</span>
+                    <div class="console-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
-                    <h3>Colloquium 2026</h3>
-                    <p>Showcase your coding skills in our annual programming competition with exciting prizes.</p>
-                    <div class="event-meta">
-                        <span class="event-location">📍 Academic Block</span>
-                        <span class="event-time">⏰ 10:00 AM</span>
-                    </div>
-                    <button class="event-button">Register Now</button>
                 </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">22</span>
-                        <span class="date-month">MAR</span>
-                    </div>
-                    <h3>Tech Talks Series</h3>
-                    <p>Learn from industry experts about cutting-edge technologies and career insights.</p>
-                    <div class="event-meta">
-                        <span class="event-location">📍 Seminar Hall</span>
-                        <span class="event-time">⏰ 4:00 PM</span>
-                    </div>
-                    <button class="event-button">Register Now</button>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">05</span>
-                        <span class="date-month">APR</span>
-                    </div>
-                    <h3>Hackathon 2026</h3>
-                    <p>24-hour coding marathon to solve real-world problems. Build, innovate, and win!</p>
-                    <div class="event-meta">
-                        <span class="event-location">📍 Innovation Lab</span>
-                        <span class="event-time">⏰  9:00 AM</span>
-                    </div>
-                    <button class="event-button">Register Now</button>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">12</span>
-                        <span class="date-month">APR</span>
-                    </div>
-                    <h3>Web Development Workshop</h3>
-                    <p>Master modern web technologies with hands-on projects and expert mentorship.</p>
-                    <div class="event-meta">
-                        <span class="event-location">📍 Computer Lab</span>
-                        <span class="event-time">⏰ 2:00 PM</span>
-                    </div>
-                    <button class="event-button">Register Now</button>
+                <div id="console-output" class="console-body">
+                    <div class="console-line">[INFO] System initialized successfully</div>
+                    <div class="console-line">[INFO] ISTE COLLOQUIUM 2026 Registration Module Active</div>
+                    <div class="console-line">[WAIT] Awaiting user input...</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </main>
+    </div>
 
-    <!-- Team Section -->
-    <!-- REAL BUG 2: Duplicate ID attribute - has both id="team" and id="team-section", CSS targets class="team-section" -->
-    <section id="team" id="team-section">
-        <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-subtitle">Meet the people behind ISTE Thapar</p>
-            
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-img">KA</div>
-                    </div>
-                    <h3>Kaushik Arora</h3>
-                    <p class="team-role">General Secretary</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="GitHub">gh</a>
-                        <a href="#" aria-label="Email">@</a>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-img">LG</div>
-                    </div>
-                    <h3>Lakshita Gupta</h3>
-                    <p class="team-role">General Secretary</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="GitHub">gh</a>
-                        <a href="#" aria-label="Email">@</a>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-img">PA</div>
-                    </div>
-                    <h3>Prisha Acharya</h3>
-                    <p class="team-role">Technical Head</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="GitHub">gh</a>
-                        <a href="#" aria-label="Email">@</a>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-img">AP</div>
-                    </div>
-                    <h3>Aryan Pal</h3>
-                    <p class="team-role">Events Coordinator</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="GitHub">gh</a>
-                        <a href="#" aria-label="Email">@</a>
-                    </div>
-                </div>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-brand">ISTE COLLOQUIUM 2026</span>
+                <span class="footer-separator">|</span>
+                <span>Indian Society for Technical Education</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Stay Updated</h2>
-                <p>Subscribe to our newsletter for the latest events and updates</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>ISTE Thapar</h3>
-                    <p>Indian Society for Technical Education, Thapar Institute of Engineering & Technology</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#team">Team</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>Email: iste@thapar.edu</li>
-                        <li>Phone: +91 123 456 7890</li>
-                        <li>Campus: Patiala, Punjab</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="Twitter">t</a>
-                        <a href="#" aria-label="Instagram">i</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 ISTE Thapar. All Rights Reserved.</p>
+            <div class="footer-right">
+                <span class="error-indicator">⚠️ DEBUG MODE ACTIVE</span>
             </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
