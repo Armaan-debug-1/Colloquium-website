@@ -20,9 +20,8 @@
 
 ## Bug #3
 **File**: `style.css`  
-**Line**: 374  
-**Issue**: The submit button has a CSS property that prevents it from responding to mouse clicks.
-
+**Line**: 313  
+**Issue**: The registration form card has a CSS property that prevents all interactions with the entire form.
 ---
 
 ## Bug #4

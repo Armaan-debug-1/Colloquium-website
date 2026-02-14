@@ -282,6 +282,7 @@ body {
     margin-bottom: 2rem;
 }
 
+/* BUG #3 (CSS): registration-card has pointer-events: none which makes entire form unclickable */
 .info-card,
 .registration-card {
     background: var(--bg-card);
@@ -289,7 +290,9 @@ body {
     padding: 2rem;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
+    pointer-events: none;
 }
+
 
 .card-header {
     display: flex;
@@ -412,7 +415,6 @@ body {
     color: var(--text-secondary);
 }
 
-/* BUG #3 (CSS): Submit button has pointer-events: none which prevents clicking */
 .submit-button {
     padding: 1rem 2rem;
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
@@ -424,7 +426,6 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 0.5rem;
-    pointer-events: none;
 }
 
 .submit-button:hover {
