@@ -19,8 +19,8 @@ const timerDisplay = document.getElementById('timer-display');
 const countdownRing = document.getElementById('countdown-ring');
 
 // Timer Configuration
-let timeRemaining = 40 * 60; // 40 minutes in seconds
-const totalTime = 40 * 60;
+let timeRemaining = 30 * 60; // 40 minutes in seconds
+const totalTime = 30 * 60;
 const circumference = 2 * Math.PI * 54; // radius = 54
 
 // Countdown Timer
