@@ -108,8 +108,7 @@ function logToConsole(message, type = 'info') {
     consoleOutput.scrollTop = consoleOutput.scrollHeight;
 }
 
-// BUG #5 (JS): Form submission handler uses == instead of === for string comparison
-// This allows "ISTE-2026 " (with space) or numeric 2026 to pass validation
+
 function handleFormSubmit(e) {
     e.preventDefault();
     

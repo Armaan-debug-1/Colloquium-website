@@ -282,7 +282,6 @@ body {
     margin-bottom: 2rem;
 }
 
-/* BUG #3 (CSS): registration-card has pointer-events: none which makes entire form unclickable */
 .info-card,
 .registration-card {
     background: var(--bg-card);
@@ -316,7 +315,6 @@ body {
     color: white;
 }
 
-/* BUG #2 (CSS): .success class uses display:none which hides the badge when it should show green */
 .status-badge.success {
     background: var(--success);
     display: none;
@@ -466,7 +464,6 @@ body {
     gap: 0.5rem;
 }
 
-/* BUG #4 (CSS): The dots have width and height swapped (width: 8px, height: 16px) making them ovals */
 .dot {
     width: 8px;
     height: 16px;
